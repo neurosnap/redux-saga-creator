@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-creator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "A simple utility to convert an object of sagas into a single saga",
