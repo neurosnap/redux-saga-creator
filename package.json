@@ -1,0 +1,24 @@
+{
+  "name": "redux-saga-creator",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "A simple utility to convert an object of sagas into a single saga",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "yarn run build"
+  },
+  "repository": "git@github.com:neurosnap/redux-saga-creator.git",
+  "author": "Eric Bower <neurosnap@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "redux": ">=1.0.0",
+    "redux-saga": ">=0.10.0"
+  },
+  "devDependencies": {
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "typescript": "^2.8.3"
+  }
+}
