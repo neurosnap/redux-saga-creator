@@ -34,7 +34,7 @@ const onError = (err: Error) => {
   console.log(err);
 };
 const rootSaga = sagaCreator(sagas, onError);
-// $ExpectType (...options: any[]) => Generator<AllEffect, void, unknown>
+// $ExpectType (...options: any[]) => Generator<CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor<void>>>, void, unknown>
 rootSaga;
 
 const sagaMiddleware = createSagaMiddleware();

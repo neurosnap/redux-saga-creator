@@ -1,4 +1,5 @@
-import { call, spawn, all } from 'redux-saga/effects';
+import { call, spawn, all, ForkEffectDescriptor } from 'redux-saga/effects';
+import { CombinatorEffect, SimpleEffect } from '@redux-saga/types';
 
 function* keepAlive(
   saga: (...args: any[]) => any,
@@ -27,7 +28,13 @@ export default function sagaCreator(
     [key: string]: (...args: any[]) => any;
   },
   onError?: (err: Error) => any,
-) {
+): (
+  ...options: any[]
+) => Generator<
+  CombinatorEffect<'ALL', SimpleEffect<'FORK', ForkEffectDescriptor<void>>>,
+  void,
+  unknown
+> {
   return function* rootSaga(...options: any[]) {
     yield all(
       Object.values(sagas).map((saga) =>
