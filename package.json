@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-creator",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "Create a fault-tolerant root saga from an object of sagas",
