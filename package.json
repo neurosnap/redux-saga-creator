@@ -3,22 +3,47 @@
   "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "description": "A simple utility to convert an object of sagas into a single saga",
+  "description": "Create a fault-tolerant root saga from an object of sagas",
   "scripts": {
     "build": "tsc",
-    "prepublish": "yarn run build"
+    "prepublish": "yarn run build",
+    "tc": "typings-checker --allow-expect-error --project tsconfig.json type-tests.ts",
+    "test": "tsc --noEmit && yarn tc",
+    "prettier-js": "prettier --write index.ts type-tests.ts",
+    "prettier-md": "prettier --config prettier.md.js --write *.md",
+    "format": "yarn prettier-js && yarn prettier-md"
   },
   "repository": "git@github.com:neurosnap/redux-saga-creator.git",
   "author": "Eric Bower <neurosnap@gmail.com>",
   "license": "MIT",
   "private": false,
   "peerDependencies": {
-    "redux": ">=1.0.0",
     "redux-saga": ">=0.10.0"
   },
   "devDependencies": {
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
-    "typescript": "^2.8.3"
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4",
+    "typings-checker": "^2.0.0"
+  },
+  "dependencies": {},
+  "lint-staged": {
+    "*.{ts,js}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{md}": [
+      "prettier --config prettier.md.js --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

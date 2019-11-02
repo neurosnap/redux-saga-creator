@@ -1,1 +1,6 @@
-src/
+index.ts
+type-tests.ts
+tsconfig.json
+prettier.config.json
+prettier.md.js
+.travis.yml
